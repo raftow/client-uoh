@@ -44,7 +44,7 @@ class UohApiRunner {
             $file_dir_name = dirname(__FILE__);
             require($file_dir_name . "/uoh_copy_from_prospect.php");
         }
-        $res = UohCopyFromProspect::copyFromProspect($applicantObject->id, $applicantObject);
+        $res = UohCopyFromProspect::updateDataFromProspect($applicantObject->id, $applicantObject);
         // return [$error, $info, $warning, $tech]
         // return ["not implemented", "", "", ""];
         if($res) return ["", "done", "", ""];

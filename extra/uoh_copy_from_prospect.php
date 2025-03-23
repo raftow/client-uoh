@@ -1,20 +1,19 @@
 <?php
 class UohCopyFromProspect {
 
-    public static function checkProspect($idn)
+    public static function loadProspectRow($idn)
     {
         $server_db_prefix = AfwSession::config("db_prefix", "default_db_");
         $prospect = AfwDatabase::db_recup_row("select * from ".$server_db_prefix."adm.prospect_applicant where idn = '".$idn."'");
         return $prospect;
     }
 
-    public static function copyFromProspect($idn, $applicantObj=null)
+    public static function updateDataFromProspect($idn, $applicantObj=null)
     {
-        $prospect = self::checkProspect($idn);
+        $prospect = self::loadProspectRow($idn);
         if($prospect["id"]){
-            if(!$applicantObj) $applicantObj = Applicant::loadByMainIndex($idn);
-            
-            $applicantObj->set("created_at",$prospect["created_at"]);
+            if(!$applicantObj) $applicantObj = Applicant::loadByMainIndex($idn, true);
+            if(!$applicantObj) return null;
             
             if($applicantObj->is_new || $prospect["email"]) $applicantObj->set("email",$prospect["email"]);
             if($applicantObj->is_new || $prospect["mobile"]) $applicantObj->set("mobile",$prospect["mobile"]);
@@ -104,7 +103,7 @@ class UohCopyFromProspect {
             $applicantObj->set("sci_id",$prospect["SISId"]); 
             
             $applicantObj->commit();
-            $qualifications = self::getProspectQualification($prospect["id"]);
+            $qualifications = self::getProspectQualificationRows($prospect["id"]);
             foreach($qualifications as $qual){
                 $applicant_qualification = ApplicantQualification::loadByMainIndex($prospect["idn"], $qual["qualification_id"], $qual["major_category_id"], true);
                 $applicant_qualification->set("applicant_id",$prospect["idn"]);
@@ -127,7 +126,7 @@ class UohCopyFromProspect {
         }
     }
 
-    public static function getProspectQualification($id){
+    public static function getProspectQualificationRows($id){
         $server_db_prefix = AfwSession::config("db_prefix", "default_db_");
         $prospect_qualifications = AfwDatabase::db_recup_rows("select * from ".$server_db_prefix."adm.prospect_qualification where applicant_id = '".$id."'");
         return $prospect_qualifications;
