@@ -64,6 +64,16 @@ class UohCopyFromProspect {
             if($applicantObj->is_new || $prospect["guardian_id_date"]) $applicantObj->set("guardian_id_date",$prospect["guardian_id_date"]);
             if($applicantObj->is_new || $prospect["guardian_id_place"]) $applicantObj->set("guardian_id_place",$prospect["guardian_id_place"]);
             if($applicantObj->is_new || $prospect["relationship_enum"]) $applicantObj->set("relationship_enum",$prospect["relationship_enum"]);
+
+            if($applicantObj->is_new || $prospect["qiyas_achievement_th"]) $applicantObj->set("qiyas_achievement_th",$prospect["qiyas_achievement_th"]);
+            if($applicantObj->is_new || $prospect["qiyas_achievement_th_date"]) $applicantObj->set("qiyas_achievement_th_date",$prospect["qiyas_achievement_th_date"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_sc"]) $applicantObj->set("qiyas_aptitude_sc",$prospect["qiyas_aptitude_sc"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_sc_date"]) $applicantObj->set("qiyas_aptitude_sc_date",$prospect["qiyas_aptitude_sc_date"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_th"]) $applicantObj->set("qiyas_aptitude_th",$prospect["qiyas_aptitude_th"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_th_date"]) $applicantObj->set("qiyas_aptitude_th_date",$prospect["qiyas_aptitude_th_date"]);
+            if($applicantObj->is_new || $prospect["qiyas_achievement_sc"]) $applicantObj->set("qiyas_achievement_sc",$prospect["qiyas_achievement_sc"]);
+            if($applicantObj->is_new || $prospect["qiyas_achievement_sc_date"]) $applicantObj->set("qiyas_achievement_sc_date",$prospect["qiyas_achievement_sc_date"]);
+            
             
             if($applicantObj->is_new || $prospect["mohe_regular"]) $applicantObj->set("attribute_1",$prospect["mohe_regular"]>0 ? "Y":"N");
             if($applicantObj->is_new || $prospect["mohe_Institution"]) $applicantObj->set("attribute_2",$prospect["mohe_Institution"]);
@@ -91,15 +101,10 @@ class UohCopyFromProspect {
             if($applicantObj->is_new || $prospect["sec_school_ind"]) $applicantObj->set("attribute_26",$prospect["sec_school_ind"]>0 ? "Y":"N");
             if($applicantObj->is_new || $prospect["qiyas_aptitude_ind"]) $applicantObj->set("attribute_27",$prospect["qiyas_aptitude_ind"]>0 ? "Y":"N");
             if($applicantObj->is_new || $prospect["qiyas_achievement_ind"]) $applicantObj->set("attribute_28",$prospect["qiyas_achievement_ind"]>0 ? "Y":"N");
-            if($applicantObj->is_new || $prospect["qiyas_achievement_th"]) $applicantObj->set("attribute_29",$prospect["qiyas_achievement_th"]);
-            if($applicantObj->is_new || $prospect["qiyas_achievement_th_date"]) $applicantObj->set("attribute_30",$prospect["qiyas_achievement_th_date"]);
-            if($applicantObj->is_new || $prospect["qiyas_aptitude_sc"]) $applicantObj->set("attribute_31",$prospect["qiyas_aptitude_sc"]);
-            if($applicantObj->is_new || $prospect["qiyas_aptitude_sc_date"]) $applicantObj->set("attribute_32",$prospect["qiyas_aptitude_sc_date"]);
-            if($applicantObj->is_new || $prospect["qiyas_aptitude_th"]) $applicantObj->set("attribute_33",$prospect["qiyas_aptitude_th"]);
-            if($applicantObj->is_new || $prospect["qiyas_aptitude_th_date"]) $applicantObj->set("attribute_34",$prospect["qiyas_aptitude_th_date"]);
-            if($applicantObj->is_new || $prospect["qiyas_achievement_sc"]) $applicantObj->set("attribute_35",$prospect["qiyas_achievement_sc"]);
-            if($applicantObj->is_new || $prospect["qiyas_achievement_sc_date"]) $applicantObj->set("attribute_36",$prospect["qiyas_achievement_sc_date"]);
+            
             if($applicantObj->is_new || $prospect["qiyas_activity_date"]) $applicantObj->set("attribute_37",$prospect["qiyas_activity_date"]);
+
+
             $applicantObj->set("sci_id",$prospect["SISId"]); 
             
             $applicantObj->commit();

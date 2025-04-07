@@ -54,6 +54,7 @@ $additional_fields = [
     'attribute_28' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 24, 'step' => 2, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_achievement_ind', 'optional' => false, 
             'title_ar' => 'لديه اختبار التحصيلي', 'title_en' => 'He has an achievement test', 'help' => 'شرط ان يكون لدى المتقدماختبار التحصيلي'),
 
+    /* changed definitively by rafik       
     'attribute_29' => array('type' => 'INT', 'css' => 'width_pct_25', 'size' => 24, 'step' => 2, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_achievement_th', 'optional' => false, 'title_ar' => 'درجةاختبار التحصيل الدراسي-التخصصات النظرية', 'title_en' => 'Academic achievement test score - theoretical', 'help' => ''),
     'attribute_30' => array('type' => 'GDAT', 'css' => 'width_pct_25', 'size' => 24, 'step' => 2, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_achievement_th_date', 'optional' => false, 'title_ar' => 'تاريخ اختبار التحصيلي-التخصصات النظرية', 'title_en' => 'History of the achievement test - theoretical', 'help' => ''),
     'attribute_31' => array('type' => 'INT', 'css' => 'width_pct_25', 'size' => 24, 'step' => 2, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_aptitude_sc', 'optional' => false, 'title_ar' => 'درجة اختبار القدرات العامة-التخصصات العلمية', 'title_en' => 'General aptitude test score - scientific', 'help' => ''),
@@ -62,6 +63,7 @@ $additional_fields = [
     'attribute_34' => array('type' => 'GDAT', 'css' => 'width_pct_25', 'size' => 24, 'step' => 2, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_aptitude_th_date', 'optional' => false, 'title_ar' => 'تاريخ اختبار القدرات العامة-التخصصات النظرية', 'title_en' => 'Date of general aptitude testing - theoretical', 'help' => ''),
     'attribute_35' => array('type' => 'INT', 'css' => 'width_pct_25', 'size' => 24, 'step' => 2, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_achievement_sc', 'optional' => false, 'title_ar' => 'درجةاختبار التحصيل الدراسي-التخصصات العلمية', 'title_en' => 'Academic achievement test score - scientific', 'help' => ''),
     'attribute_36' => array('type' => 'GDAT', 'css' => 'width_pct_25', 'size' => 24, 'step' => 2, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_achievement_sc_date', 'optional' => false, 'title_ar' => 'تاريخ اختبار التحصيلي-التخصصات العلمية', 'title_en' => 'Date of the achievement test - scientific', 'help' => ''),
+    */
     'attribute_37' => array('type' => 'GDAT', 'css' => 'width_pct_25', 'size' => 24, 'step' => 2, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_activity_date', 'optional' => false, 'title_ar' => 'تاريخ الحركة', 'title_en' => 'History of the movement', 'help' => ''),
     'dragDropDiv' => array('step' => 3,)
 ];
