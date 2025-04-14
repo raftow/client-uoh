@@ -105,7 +105,7 @@ class UohCopyFromProspect {
             if($applicantObj->is_new || $prospect["qiyas_activity_date"]) $applicantObj->set("attribute_37",$prospect["qiyas_activity_date"]);
 
 
-            $applicantObj->set("sci_id",$prospect["SISId"]); 
+            // $applicantObj->set("sci_id",$prospect["SISId"]); 
             
             $applicantObj->commit();
             $qualifications = self::getProspectQualificationRows($prospect["id"]);
