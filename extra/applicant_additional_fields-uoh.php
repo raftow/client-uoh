@@ -22,7 +22,7 @@ $additional_fields = [
             'title_ar' => 'مفصول تدريبيا', 'title_en' => 'Training dismissed', 'help' => ''),
     'attribute_9' => array('type' => 'TEXT','css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'rayat', 'field_code' => 'rayat_dismissed_semester', 'optional' => false, 'title_ar' => 'الفصل التدريبي لاجراء الفصل من التدريب', 'title_en' => 'Training class to conduct a class from training', 'help' => ''),
 
-    'attribute_10' => array('type'=> 'YN',  'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'rayat', 'field_code' => 'social_security_beneficiary_child', 'optional' => FALSE, 'title_ar' => 'من ابناء مستفيدي الضمان الاجتماعي', 'title_en' => 'Child of a Social Security beneficiary', 'help' => '' ),
+    'attribute_10' => array('type'=> 'YN',  'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'profile-other', 'field_code' => 'social_security_beneficiary_child', 'optional' => FALSE, 'title_ar' => 'من ابناء مستفيدي الضمان الاجتماعي', 'title_en' => 'Child of a Social Security beneficiary', 'help' => '' ),
 
     'attribute_11' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'rayat', 'field_code' => 'rayat_continuing_ind', 'optional' => false, 'title_ar' => 'مستمرّ في التدريب', 'title_en' => 'Continuing training', 'help' => ''),
     'attribute_12' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'rayat', 'field_code' => 'rayat_EN_graduated_ind', 'optional' => false, 'title_ar' => 'خريج برنامج الإنجليزية المكثف', 'title_en' => 'raduate of the Intensive English Program', 'help' => ''),
