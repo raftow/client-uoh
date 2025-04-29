@@ -22,7 +22,7 @@ $additional_fields = [
             'title_ar' => 'مفصول تدريبيا', 'title_en' => 'Training dismissed', 'help' => ''),
     'attribute_9' => array('type' => 'TEXT','css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'rayat', 'field_code' => 'rayat_dismissed_semester', 'optional' => false, 'title_ar' => 'الفصل التدريبي لاجراء الفصل من التدريب', 'title_en' => 'Training class to conduct a class from training', 'help' => ''),
 
-    'attribute_10' => array('type'=> 'YN',  'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'profile-other', 'field_code' => 'social_security_beneficiary_child', 'optional' => FALSE, 'title_ar' => 'من ابناء مستفيدي الضمان الاجتماعي', 'title_en' => 'Child of a Social Security beneficiary', 'help' => '' ),
+    'attribute_10' => array('type'=> 'YN',  'css' => 'width_pct_25', 'size' => 64, 'step' => 7, 'fgroup' => 'profile-other', 'field_code' => 'social_security_beneficiary_child', 'optional' => FALSE, 'title_ar' => 'من ابناء مستفيدي الضمان الاجتماعي', 'title_en' => 'Child of a Social Security beneficiary', 'help' => '' ),
 
     'attribute_11' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'rayat', 'field_code' => 'rayat_continuing_ind', 'optional' => false, 'title_ar' => 'مستمرّ في التدريب', 'title_en' => 'Continuing training', 'help' => ''),
     'attribute_12' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'rayat', 'field_code' => 'rayat_EN_graduated_ind', 'optional' => false, 'title_ar' => 'خريج برنامج الإنجليزية المكثف', 'title_en' => 'raduate of the Intensive English Program', 'help' => ''),
@@ -32,15 +32,15 @@ $additional_fields = [
     'attribute_16' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'rayat', 'field_code' => 'rayat_AS_graduated_ind', 'optional' => false, 'title_ar' => 'خريج دبلوم الكلية التقنية', 'title_en' => 'Graduate of technical college diploma', 'help' => ''),
     'attribute_17' => array('type' => 'GDAT', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'rayat', 'field_code' => 'rayat_activity_date', 'optional' => false, 'title_ar' => 'تاريخ الحركة في رايات', 'title_en' => 'Activity date', 'help' => ''),
     //update `application_field` set shortname = 'rayat' WHERE `field_name` in ('attribute_5','attribute_6','attribute_8','attribute_9','attribute_10','attribute_11','attribute_12','attribute_13','attribute_14','attribute_15','attribute_16','attribute_17');
-    'attribute_18' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'profile-other', 'field_code' => 'children_of_martyrs', 'optional' => false, 
+    'attribute_18' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 7, 'fgroup' => 'profile-other', 'field_code' => 'children_of_martyrs', 'optional' => false, 
             'title_ar' => 'المتقدم من أبناء شهداء الواجب', 'title_en' => 'Are you one of the children of martyrs of duty?', 'help' => 'هل أنت من ذوي شهداء الواجب'),
-    'attribute_19' => array('type' => 'FK', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'profile-other', 'answer' => 'check_method', 'ansmodule' => 'adm', 'field_code' => 'children_of_martyrs_check_method_id', 'optional' => false, 
+    'attribute_19' => array('type' => 'FK', 'css' => 'width_pct_25', 'size' => 64, 'step' => 7, 'fgroup' => 'profile-other', 'answer' => 'check_method', 'ansmodule' => 'adm', 'field_code' => 'children_of_martyrs_check_method_id', 'optional' => false, 
             'title_ar' => 'طريقة التحقق', 'title_en' => 'Verification method', 'help' => ''),
-    'attribute_20' => array('type' => 'TEXT', 'css' => 'width_pct_50', 'size' => 64, 'step' => 2, 'fgroup' => 'profile-other', 'field_code' => 'children_of_martyrs_afile_id', 'optional' => false, 
+    'attribute_20' => array('type' => 'TEXT', 'css' => 'width_pct_50', 'size' => 64, 'step' => 7, 'fgroup' => 'profile-other', 'field_code' => 'children_of_martyrs_afile_id', 'optional' => false, 
             'title_ar' => 'إثبات ذوي شهداء الواجب', 'title_en' => 'Proof of the relatives of martyrs of duty', 'help' => 'اذا كان martyrs_Ind=Yيصبح من الضروري على المتقدم رفع وثيقة اثبات انه من شهداء الواجب'),
     //'attribute_21' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'hrsd', 'field_code' => 'saudi_ind', 'optional' => false, 
             // 'title_ar' => 'سعودي أو من أم سعودية', 'title_en' => 'Saudi?', 'help' => 'يستخدم لشرط ان يكون المتقدم سعودي'),
-    'attribute_22' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'profile-other', 'field_code' => 'is_deaf', 'optional' => false, 
+    'attribute_22' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 7, 'fgroup' => 'profile-other', 'field_code' => 'is_deaf', 'optional' => false, 
                 'title_ar' => 'من فئة الصم؟', 'title_en' => 'Are you deaf?', 'help' => 'يستخدم لفتح مسارات التقنية الخاصةلفئة الصم'),
     'attribute_23' => array('type' => 'YN', 'css' => 'width_pct_50', 'size' => 64, 'step' => 2, 'fgroup' => 'hrsd', 'field_code' => 'high_inst_qualified_ind', 'optional' => false, 
             'title_ar' => 'خريج مرحلة المتوسطة، شهادة إتمام الصف الأول الثانوي، شهادة إتمام الصف الثاني الثانوي', 'title_en' => 'Qualified for high industrial institue diplma', 'help' => 'مؤهل لمرحلة دبلوم المعاهد الصناعية'),
