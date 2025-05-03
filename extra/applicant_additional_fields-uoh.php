@@ -22,7 +22,7 @@ $additional_fields = [
             'title_ar' => 'مفصول تدريبيا', 'title_en' => 'Training dismissed', 'help' => ''),
     'attribute_9' => array('type' => 'TEXT','css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'rayat', 'field_code' => 'rayat_dismissed_semester', 'optional' => false, 'title_ar' => 'الفصل التدريبي لاجراء الفصل من التدريب', 'title_en' => 'Training class to conduct a class from training', 'help' => ''),
 
-    'attribute_10' => array('type'=> 'YN',  'css' => 'width_pct_25', 'size' => 64, 'step' => 7, 'fgroup' => 'profile-other', 'field_code' => 'social_security_beneficiary_child', 'optional' => FALSE, 'title_ar' => 'من ابناء مستفيدي الضمان الاجتماعي', 'title_en' => 'Child of a Social Security beneficiary', 'help' => '' ),
+    'attribute_10' => array('type'=> 'YN',  'css' => 'width_pct_50', 'size' => 64, 'step' => 8, 'fgroup' => 'disability', 'field_code' => 'social_security_beneficiary_child', 'optional' => FALSE, 'title_ar' => 'من ابناء مستفيدي الضمان الاجتماعي', 'title_en' => 'Child of a Social Security beneficiary', 'help' => '' ),
 
     'attribute_11' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'rayat', 'field_code' => 'rayat_continuing_ind', 'optional' => false, 'title_ar' => 'مستمرّ في التدريب', 'title_en' => 'Continuing training', 'help' => ''),
     'attribute_12' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'rayat', 'field_code' => 'rayat_EN_graduated_ind', 'optional' => false, 'title_ar' => 'خريج برنامج الإنجليزية المكثف', 'title_en' => 'raduate of the Intensive English Program', 'help' => ''),
@@ -40,7 +40,7 @@ $additional_fields = [
             'title_ar' => 'إثبات ذوي شهداء الواجب', 'title_en' => 'Proof of the relatives of martyrs of duty', 'help' => 'اذا كان martyrs_Ind=Yيصبح من الضروري على المتقدم رفع وثيقة اثبات انه من شهداء الواجب'),
     //'attribute_21' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'hrsd', 'field_code' => 'saudi_ind', 'optional' => false, 
             // 'title_ar' => 'سعودي أو من أم سعودية', 'title_en' => 'Saudi?', 'help' => 'يستخدم لشرط ان يكون المتقدم سعودي'),
-    'attribute_22' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 7, 'fgroup' => 'profile-other', 'field_code' => 'is_deaf', 'optional' => false, 
+    'attribute_22' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 8, 'fgroup' => 'disability', 'field_code' => 'is_deaf', 'optional' => false, 
                 'title_ar' => 'من فئة الصم؟', 'title_en' => 'Are you deaf?', 'help' => 'يستخدم لفتح مسارات التقنية الخاصةلفئة الصم'),
     'attribute_23' => array('type' => 'YN', 'css' => 'width_pct_50', 'size' => 64, 'step' => 2, 'fgroup' => 'hrsd', 'field_code' => 'high_inst_qualified_ind', 'optional' => false, 
             'title_ar' => 'خريج مرحلة المتوسطة، شهادة إتمام الصف الأول الثانوي، شهادة إتمام الصف الثاني الثانوي', 'title_en' => 'Qualified for high industrial institue diplma', 'help' => 'مؤهل لمرحلة دبلوم المعاهد الصناعية'),
