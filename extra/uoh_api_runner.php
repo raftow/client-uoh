@@ -60,6 +60,17 @@ class UohApiRunner {
 
     public static function run_api_qiyas_exam_result($applicantObject)
     {
+        // @medlii to add your code here
+        // 1 	اختبار القدرات العامة	اختبار القدرات العامة للتخصصات العلمية	General Aptitude Test for Science Track	100	Percentage		عندما تكون نتائج البحث كثيرة يتم ايقاف التعديلات على جزء من السجلات. قم باختيار معايير اكثر دقة للبحث	عندما تكون نتائج البحث كثيرة يتم ايقاف التعديلات على جزء من السجلات. قم باختيار معايير اكثر دقة للبحث
+        //2	اختبار القدرات العامة	اختبار القدرات العامة للتخصصات النظرية	General Aptitude Test for Humanities Track	100	Percentage		عندما تكون نتائج البحث كثيرة يتم ايقاف التعديلات على جزء من السجلات. قم باختيار معايير اكثر دقة للبحث	عندما تكون نتائج البحث كثيرة يتم ايقاف التعديلات على جزء من السجلات. قم باختيار معايير اكثر دقة للبحث
+        //3	اختبار التحصيل الدراسي	اختبار التحصيل الدراسي للتخصصات العلمية	Academic Achievement Test for the Science Track	100	Percentage		عندما تكون نتائج البحث كثيرة يتم ايقاف التعديلات على جزء من السجلات. قم باختيار معايير اكثر دقة للبحث	عندما تكون نتائج البحث كثيرة يتم ايقاف التعديلات على جزء من السجلات. قم باختيار معايير اكثر دقة للبحث
+        //4	اختبار التحصيل الدراسي	اختبار التحصيل الدراسي للتخصصات النظرية	Academic Achievement Test for the Humanities Track	100	Percentage		عندما تكون نتائج البحث كثيرة يتم ايقاف التعديلات على جزء من السجلات. قم باختيار معايير اكثر دقة للبحث	عندما تكون نتائج البحث كثيرة يتم ايقاف التعديلات على جزء من السجلات. قم باختيار معايير اكثر دقة للبحث
+        //5	اختبار كفايات اللغة الإنجليزية	اختبار كفايات اللغة الإنجليزية STEP	Standardized Test of English Proficiency (STEP)	100	Percentage	
+        $evaluation_id = 1;
+        $obj = ApplicantEvaluation::loadByMainIndex($evaluation_id, $applicantObject->id, '2025-01-01', true);
+
+
+        // please keep below
         $at27 = $applicantObject->getVal("attribute_27");
         $at28 = $applicantObject->getVal("attribute_28");
         $new_at27 = $applicantObject->hasEvaluation();
@@ -97,6 +108,8 @@ class UohApiRunner {
 
     public static function run_api_noor_api($applicantObject)
     {
+        // @medlii to add your code here
+        
         // return [$error, $info, $warning, $tech]
         // return ["not implemented", "", "", ""];
         return ["", "done", "", ""];
