@@ -58,6 +58,19 @@ class UohApiRunner {
         return ["", "done", "", ""];
     }
 
+    public static function run_api_uoh_enrol($applicantObject)
+    {
+        $new_at11 = "N";
+        $applicantObject->set("attribute_11", $new_at11);
+        $applicantObject->commit();
+        
+        // return [$error, $info, $warning, $tech]
+        // return ["not implemented", "", "", ""];
+        return ["", "done", "", ""];
+    }
+
+    
+
     public static function run_api_qiyas_exam_result($applicantObject)
     {
         // @medlii to add your code here
@@ -78,7 +91,7 @@ class UohApiRunner {
 
         $new_at28 = $applicantObject->hasEvaluation();
         $applicantObject->set("attribute_28", $new_at28);
-
+        /*
         $at11 = $applicantObject->getVal("attribute_11");
         if($at11==0)
         {
@@ -94,7 +107,7 @@ class UohApiRunner {
         $applicantObject->set("attribute_11", $new_at11);
         
 
-        $applicantObject->commit();
+        $applicantObject->commit();*/
         return ["", "done attribute_27 was $at27 and become $new_at27, attribute_11 was $at11 and become $new_at11", "", ""];
         
     }
@@ -109,7 +122,7 @@ class UohApiRunner {
     public static function run_api_noor_api($applicantObject)
     {
         // @medlii to add your code here
-        
+
         // return [$error, $info, $warning, $tech]
         // return ["not implemented", "", "", ""];
         return ["", "done", "", ""];
