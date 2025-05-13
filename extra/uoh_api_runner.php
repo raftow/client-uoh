@@ -108,7 +108,7 @@ class UohApiRunner {
         
 
         $applicantObject->commit();*/
-        return ["", "done attribute_27 was $at27 and become $new_at27, attribute_11 was $at11 and become $new_at11", "", ""];
+        return ["", "done attribute_27 was $at27 and become $new_at27", "", ""]; // , attribute_11 was $at11 and become $new_at11
         
     }
 
