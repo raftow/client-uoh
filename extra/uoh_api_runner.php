@@ -17,6 +17,8 @@ class UohApiRunner {
 
     public static function run_api_mohe_graduate_record($applicantObject)
     {
+        $applicantObject->set("attribute_1", "N");
+        $applicantObject->commit();
         // return [$error, $info, $warning, $tech]
         // return ["not implemented", "", "", ""];
         return ["", "done", "", ""];
