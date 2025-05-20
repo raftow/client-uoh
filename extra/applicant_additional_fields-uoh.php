@@ -50,9 +50,9 @@ $additional_fields = [
             'title_ar' => 'خريج دبلوم كلية تقنية', 'title_en' => 'Graduate of a technical college diploma', 'help' => 'شرط المؤهل العلمي لبرنامج الانجليزية المكثف للمؤسسة'),
     /*'attribute_26' => array('type' => 'YN', 'css' => 'width_pct_50', 'size' => 64, 'step' => 3, 'fgroup' => 'hrsd', 'field_code' => 'sec_school_ind', 'optional' => false, 'title_ar' => 'لديه الثانوية أو ما يعادلهالا تتجاوز الخمس سنوات', 'title_en' => 'High school graduate or equivalent not more than five years old', 'help' => 'شرط المؤهل العلمي لدبلوم الكلية التقنية'),*/
 
-    'attribute_27' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 24, 'step' => 2, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_aptitude_ind', 'optional' => false, 
+    'attribute_27' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 24, 'step' => 1, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_aptitude_ind', 'optional' => false, 
             'title_ar' => 'لديه اختبار القدرات العامة', 'title_en' => 'He has a general aptitude test', 'help' => 'شرط ان يكون لدى المتقدماختبار القدرات العامة'),
-    'attribute_28' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 24, 'step' => 2, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_achievement_ind', 'optional' => false, 
+    'attribute_28' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 24, 'step' => 1, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_achievement_ind', 'optional' => false, 
             'title_ar' => 'لديه اختبار التحصيلي', 'title_en' => 'He has an achievement test', 'help' => 'شرط ان يكون لدى المتقدماختبار التحصيلي'),
 
     /* changed definitively by rafik       
