@@ -3,7 +3,12 @@ class UohApiRunner {
 
     public static function register_apis()
     {
-        return ['offline_data', 'moi_person_info'];
+        return ['offline_data'];
+    }
+
+    public static function weighted_perecentage_apis()
+    {
+        return ['offline_data','qiyas_exam_result','noor_api'];
     }
 
     public static function run_api_mlsd_disability($applicantObject)
