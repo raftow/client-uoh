@@ -3,7 +3,7 @@ class UohApiRunner {
 
     public static function register_apis()
     {
-        return ['offline_data'];
+        return ['offline_data', 'uoh_enrol'];
     }
 
     public static function weighted_perecentage_apis()
