@@ -48,13 +48,6 @@ class UohApiRunner {
         return ["", "done", "", ""];
     }
 
-
-
-    public static function run_api_offline_data($applicantObject)
-    {
-        
-    }
-
     public static function run_api_offline_data($applicantObject)
     {
         if (!class_exists("UohCopyFromProspect", false)) {
