@@ -8,6 +8,54 @@ class UohCopyFromProspect {
         return $prospect;
     }
 
+
+    public static function updateEvalQualFromProspect($idn, $applicantObj=null)
+    {
+        $prospect = self::loadProspectRow($idn);
+        if($prospect["id"]){
+            if(!$applicantObj) $applicantObj = Applicant::loadByMainIndex($idn, true);
+            if(!$applicantObj) return null;
+
+            if($applicantObj->is_new || $prospect["qiyas_achievement_th"]) $applicantObj->set("qiyas_achievement_th",$prospect["qiyas_achievement_th"]);
+            if($applicantObj->is_new || $prospect["qiyas_achievement_th_date"]) $applicantObj->set("qiyas_achievement_th_date",$prospect["qiyas_achievement_th_date"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_sc"]) $applicantObj->set("qiyas_aptitude_sc",$prospect["qiyas_aptitude_sc"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_sc_date"]) $applicantObj->set("qiyas_aptitude_sc_date",$prospect["qiyas_aptitude_sc_date"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_th"]) $applicantObj->set("qiyas_aptitude_th",$prospect["qiyas_aptitude_th"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_th_date"]) $applicantObj->set("qiyas_aptitude_th_date",$prospect["qiyas_aptitude_th_date"]);
+            if($applicantObj->is_new || $prospect["qiyas_achievement_sc"]) $applicantObj->set("qiyas_achievement_sc",$prospect["qiyas_achievement_sc"]);
+            if($applicantObj->is_new || $prospect["qiyas_achievement_sc_date"]) $applicantObj->set("qiyas_achievement_sc_date",$prospect["qiyas_achievement_sc_date"]);
+            
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_ind"]) $applicantObj->set("attribute_27",$prospect["qiyas_aptitude_ind"]>0 ? "Y":"N");
+            if($applicantObj->is_new || $prospect["qiyas_achievement_ind"]) $applicantObj->set("attribute_28",$prospect["qiyas_achievement_ind"]>0 ? "Y":"N");            
+            if($applicantObj->is_new || $prospect["qiyas_activity_date"]) $applicantObj->set("attribute_37",$prospect["qiyas_activity_date"]);
+
+
+            // $applicantObj->set("sci_id",$prospect["SISId"]); 
+            
+            $applicantObj->commit();
+            $qualifications = self::getProspectQualificationRows($prospect["id"]);
+            foreach($qualifications as $qual){
+                $applicant_qualification = ApplicantQualification::loadByMainIndex($prospect["idn"], $qual["qualification_id"], $qual["major_category_id"], true);
+                $applicant_qualification->set("applicant_id",$prospect["idn"]);
+                $applicant_qualification->set("qualification_id",$qual["qualification_id"]);
+                $applicant_qualification->set("major_category_id",$qual["major_category_id"]);
+                $applicant_qualification->set("major_path_id",$qual["major_path_id"]);
+                $applicant_qualification->set("qualification_major_id",$qual["qualification_major_id"]);
+                $applicant_qualification->set("gpa",$qual["gpa"]);
+                $applicant_qualification->set("gpa_from",$qual["gpa_from"]);
+                $applicant_qualification->set("date",$qual["date"]);
+                $applicant_qualification->set("source",$qual["source"]);
+                $applicant_qualification->set("imported","Y");
+                $applicant_qualification->set("qualification_major_desc",$qual["qualification_major_desc"]);
+
+                $applicant_qualification->commit();
+            }
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public static function updateDataFromProspect($idn, $applicantObj=null)
     {
         $prospect = self::loadProspectRow($idn);

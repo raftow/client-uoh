@@ -8,7 +8,7 @@ class UohApiRunner {
 
     public static function weighted_perecentage_apis()
     {
-        return ['offline_data','qiyas_exam_result','noor_api'];
+        return ['offline_evqual']; /* offline_data,'qiyas_exam_result','noor_api' */
     }
 
     public static function sorting_apis()
@@ -46,6 +46,21 @@ class UohApiRunner {
     {
         // return [$error, $info, $warning, $tech]
         return ["", "done", "", ""];
+    }
+
+    
+
+    public static function run_api_offline_evqual($applicantObject)
+    {
+        if (!class_exists("UohCopyFromProspect", false)) {
+            $file_dir_name = dirname(__FILE__);
+            require($file_dir_name . "/uoh_copy_from_prospect.php");
+        }
+        $res = UohCopyFromProspect::updateEvalQualFromProspect($applicantObject->id, $applicantObject);
+        // return [$error, $info, $warning, $tech]
+        // return ["not implemented", "", "", ""];
+        if($res) return ["", "done", "", ""];
+        else return ["not found in prospect data", "", "", ""];
     }
 
     public static function run_api_offline_data($applicantObject)
