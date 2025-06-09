@@ -11,6 +11,11 @@ class UohApiRunner {
         return ['offline_data','qiyas_exam_result','noor_api'];
     }
 
+    public static function sorting_apis()
+    {
+        return self::weighted_perecentage_apis();
+    }
+
     public static function run_api_mlsd_disability($applicantObject)
     {
         // return [$error, $info, $warning, $tech]
@@ -44,6 +49,11 @@ class UohApiRunner {
     }
 
 
+
+    public static function run_api_offline_data($applicantObject)
+    {
+        
+    }
 
     public static function run_api_offline_data($applicantObject)
     {
