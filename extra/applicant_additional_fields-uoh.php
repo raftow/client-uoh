@@ -3,7 +3,7 @@ global $additional_fields;
 
 $additional_fields = [
     'attribute_1' => array('type' => 'YN', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'moe', 'field_code' => 'mohe_regular', 'optional' => false, 
-            'title_ar' => 'منتظم بجهة تعليمية حكومية', 'title_en' => 'Regular in any governmental educational institution', 'help' => ''),
+            'title_ar' => 'مقبول بجامعة أخرى', 'title_en' => 'Admitted in another educational institution', 'help' => ''),
     'attribute_2' => array('type' => 'TEXT', 'size' => 64, 'step' => 2, 'fgroup' => 'moe', 'field_code' => 'mohe_Institution', 'optional' => false, 
             'title_ar' => 'الجهة التعليمية الحكومية', 'title_en' => 'Governmental educational Institiotion', 'help' => ''),
     'attribute_3' => array('type' => 'GDAT', 'css' => 'width_pct_25', 'size' => 64, 'step' => 2, 'fgroup' => 'moe', 'field_code' => 'mohe_activity_date', 'optional' => false, 
