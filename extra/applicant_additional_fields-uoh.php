@@ -72,24 +72,5 @@ $additional_fields = [
     'attribute_37' => array('type' => 'GDAT', 'css' => 'width_pct_25', 'size' => 24, 'step' => 2, 'fgroup' => 'qiyas', 'field_code' => 'qiyas_activity_date', 'optional' => false, 'title_ar' => 'تاريخ الحركة', 'title_en' => 'History of the movement', 'help' => ''),
     'dragDropDiv' => array('step' => 3,)
 ];
-/*
-class UohApplicantFormulaManager
-{
-
-    
-    public static function calcWeightedPercentage($applicantObj, $what="value")
-    {
-        // die("here calcWeightedPercentage");
-        try
-        {
-            $pct = $coefA*$a + $coefB*$b + $coefC*$c;
-    
-            return $pct;
-        }
-        catch(Exception $e)
-        {
-            return -99;
-        }
-    }
-}
-*/
+$file_dir_name = dirname(__FILE__);
+require($file_dir_name . "/applicant_formula_manager.php");
