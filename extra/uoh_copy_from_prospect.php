@@ -3,7 +3,7 @@ class UohCopyFromProspect {
 
     public static function loadProspectRow($idn)
     {
-        $server_db_prefix = AfwSession::config("db_prefix", "default_db_");
+        $server_db_prefix = AfwSession::currentDBPrefix();
         $prospect = AfwDatabase::db_recup_row("select * from ".$server_db_prefix."adm.prospect_applicant where idn = '".$idn."'");
         return $prospect;
     }
@@ -180,7 +180,7 @@ class UohCopyFromProspect {
     }
 
     public static function getProspectQualificationRows($id){
-        $server_db_prefix = AfwSession::config("db_prefix", "default_db_");
+        $server_db_prefix = AfwSession::currentDBPrefix();
         $prospect_qualifications = AfwDatabase::db_recup_rows("select * from ".$server_db_prefix."adm.prospect_qualification where applicant_id = '".$id."'");
         return $prospect_qualifications;
     }
