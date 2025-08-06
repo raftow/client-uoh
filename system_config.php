@@ -4,6 +4,8 @@ return [
     'theme' => 'modern',
     'main_company_domain' => "uoh.edu.sa",
     'main_company' => "uoh",
+
+
     'amd_options' => [
             'tu_college' => 'many',
     ],
