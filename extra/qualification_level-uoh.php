@@ -21,7 +21,7 @@ $lookup[30]=['ar'=> 'درجة جامعية متوسطة', 'en'=> 'Intermediate u
                                                     ['attribute' => 'attribute_4', 'operator' => '>='],
                                                 ]
 ];
-$lookup[40]=['ar'=> 'دبلوم عالي', 'en'=> 'Higher Diploma'];
-$lookup[45]=['ar'=> 'بكالوريوس', 'en'=> "Bachelor's"];
+$lookup[40]=['ar'=> 'بكالوريوس', 'en'=> "Bachelor's"];
+$lookup[45]=['ar'=> 'دبلوم عالي', 'en'=> 'Higher Diploma'];
 $lookup[50]=['ar'=> 'ماجستير', 'en'=> "Master"];
 $lookup[55]=['ar'=> 'دكتوراه', 'en'=> "PhD"];
