@@ -1,5 +1,6 @@
 <?php
 $lookup = [];
+/*
 $lookup[5]=['ar'=> 'الكفاءة المتوسطة', 'en'=> 'Intermediate proficiency',
                 'attributes' =>    [
                     ['attribute' => 'attribute_24', 'operator' => '>='],
@@ -9,6 +10,7 @@ $lookup[5]=['ar'=> 'الكفاءة المتوسطة', 'en'=> 'Intermediate profi
             ];
 $lookup[10]=['ar'=> 'الصف الأول الثانوي', 'en'=> 'first year of secondary school'];
 $lookup[15]=['ar'=> 'الصف الثاني الثانوي', 'en'=> 'second year of secondary school'];
+*/
 $lookup[20]=['ar'=> 'المستوى الثانوي', 'en'=> 'Secondary', 
                                         'attributes' =>    [
                                                 ['attribute' => 'attribute_7', 'operator' => '='],
@@ -19,5 +21,7 @@ $lookup[30]=['ar'=> 'درجة جامعية متوسطة', 'en'=> 'Intermediate u
                                                     ['attribute' => 'attribute_4', 'operator' => '>='],
                                                 ]
 ];
-$lookup[40]=['ar'=> 'بكالوريوس', 'en'=> "Bachelor's"];
-$lookup[45]=['ar'=> 'دبلوم عالي', 'en'=> 'Higher Diploma'];
+$lookup[40]=['ar'=> 'دبلوم عالي', 'en'=> 'Higher Diploma'];
+$lookup[45]=['ar'=> 'بكالوريوس', 'en'=> "Bachelor's"];
+$lookup[50]=['ar'=> 'ماجستير', 'en'=> "Master"];
+$lookup[55]=['ar'=> 'دكتوراه', 'en'=> "PhD"];
