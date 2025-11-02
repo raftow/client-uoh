@@ -1,20 +1,67 @@
 <?php
 class UohCopyFromProspect {
 
-    public static function checkProspect($idn)
+    public static function loadProspectRow($idn)
     {
-        $server_db_prefix = AfwSession::config("db_prefix", "default_db_");
+        $server_db_prefix = AfwSession::currentDBPrefix();
         $prospect = AfwDatabase::db_recup_row("select * from ".$server_db_prefix."adm.prospect_applicant where idn = '".$idn."'");
         return $prospect;
     }
 
-    public static function copyFromProspect($idn, $applicantObj=null)
+
+    public static function updateEvalQualFromProspect($idn, $applicantObj=null)
     {
-        $prospect = self::checkProspect($idn);
+        $prospect = self::loadProspectRow($idn);
         if($prospect["id"]){
-            if(!$applicantObj) $applicantObj = Applicant::loadByMainIndex($idn);
+            if(!$applicantObj) $applicantObj = Applicant::loadByMainIndex($idn, true);
+            if(!$applicantObj) return null;
+
+            if($applicantObj->is_new || $prospect["qiyas_achievement_th"]) $applicantObj->set("qiyas_achievement_th",$prospect["qiyas_achievement_th"]);
+            if($applicantObj->is_new || $prospect["qiyas_achievement_th_date"]) $applicantObj->set("qiyas_achievement_th_date",$prospect["qiyas_achievement_th_date"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_sc"]) $applicantObj->set("qiyas_aptitude_sc",$prospect["qiyas_aptitude_sc"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_sc_date"]) $applicantObj->set("qiyas_aptitude_sc_date",$prospect["qiyas_aptitude_sc_date"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_th"]) $applicantObj->set("qiyas_aptitude_th",$prospect["qiyas_aptitude_th"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_th_date"]) $applicantObj->set("qiyas_aptitude_th_date",$prospect["qiyas_aptitude_th_date"]);
+            if($applicantObj->is_new || $prospect["qiyas_achievement_sc"]) $applicantObj->set("qiyas_achievement_sc",$prospect["qiyas_achievement_sc"]);
+            if($applicantObj->is_new || $prospect["qiyas_achievement_sc_date"]) $applicantObj->set("qiyas_achievement_sc_date",$prospect["qiyas_achievement_sc_date"]);
             
-            $applicantObj->set("created_at",$prospect["created_at"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_ind"]) $applicantObj->set("attribute_27",$prospect["qiyas_aptitude_ind"]>0 ? "Y":"N");
+            if($applicantObj->is_new || $prospect["qiyas_achievement_ind"]) $applicantObj->set("attribute_28",$prospect["qiyas_achievement_ind"]>0 ? "Y":"N");            
+            if($applicantObj->is_new || $prospect["qiyas_activity_date"]) $applicantObj->set("attribute_37",$prospect["qiyas_activity_date"]);
+
+
+            // $applicantObj->set("sci_id",$prospect["SISId"]); 
+            
+            $applicantObj->commit();
+            $qualifications = self::getProspectQualificationRows($prospect["id"]);
+            foreach($qualifications as $qual){
+                $applicant_qualification = ApplicantQualification::loadByMainIndex($prospect["idn"], $qual["qualification_id"], $qual["major_category_id"], true);
+                $applicant_qualification->set("applicant_id",$prospect["idn"]);
+                $applicant_qualification->set("qualification_id",$qual["qualification_id"]);
+                $applicant_qualification->set("major_category_id",$qual["major_category_id"]);
+                $applicant_qualification->set("major_path_id",$qual["major_path_id"]);
+                $applicant_qualification->set("qualification_major_id",$qual["qualification_major_id"]);
+                $applicant_qualification->set("gpa",$qual["gpa"]);
+                $applicant_qualification->set("gpa_from",$qual["gpa_from"]);
+                $applicant_qualification->set("date",$qual["date"]);
+                $applicant_qualification->set("source",$qual["source"]);
+                $applicant_qualification->set("imported","Y");
+                $applicant_qualification->set("qualification_major_desc",$qual["qualification_major_desc"]);
+
+                $applicant_qualification->commit();
+            }
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static function updateDataFromProspect($idn, $applicantObj=null)
+    {
+        $prospect = self::loadProspectRow($idn);
+        if($prospect["id"]){
+            if(!$applicantObj) $applicantObj = Applicant::loadByMainIndex($idn, true);
+            if(!$applicantObj) return null;
             
             if($applicantObj->is_new || $prospect["email"]) $applicantObj->set("email",$prospect["email"]);
             if($applicantObj->is_new || $prospect["mobile"]) $applicantObj->set("mobile",$prospect["mobile"]);
@@ -65,6 +112,16 @@ class UohCopyFromProspect {
             if($applicantObj->is_new || $prospect["guardian_id_date"]) $applicantObj->set("guardian_id_date",$prospect["guardian_id_date"]);
             if($applicantObj->is_new || $prospect["guardian_id_place"]) $applicantObj->set("guardian_id_place",$prospect["guardian_id_place"]);
             if($applicantObj->is_new || $prospect["relationship_enum"]) $applicantObj->set("relationship_enum",$prospect["relationship_enum"]);
+
+            if($applicantObj->is_new || $prospect["qiyas_achievement_th"]) $applicantObj->set("qiyas_achievement_th",$prospect["qiyas_achievement_th"]);
+            if($applicantObj->is_new || $prospect["qiyas_achievement_th_date"]) $applicantObj->set("qiyas_achievement_th_date",$prospect["qiyas_achievement_th_date"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_sc"]) $applicantObj->set("qiyas_aptitude_sc",$prospect["qiyas_aptitude_sc"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_sc_date"]) $applicantObj->set("qiyas_aptitude_sc_date",$prospect["qiyas_aptitude_sc_date"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_th"]) $applicantObj->set("qiyas_aptitude_th",$prospect["qiyas_aptitude_th"]);
+            if($applicantObj->is_new || $prospect["qiyas_aptitude_th_date"]) $applicantObj->set("qiyas_aptitude_th_date",$prospect["qiyas_aptitude_th_date"]);
+            if($applicantObj->is_new || $prospect["qiyas_achievement_sc"]) $applicantObj->set("qiyas_achievement_sc",$prospect["qiyas_achievement_sc"]);
+            if($applicantObj->is_new || $prospect["qiyas_achievement_sc_date"]) $applicantObj->set("qiyas_achievement_sc_date",$prospect["qiyas_achievement_sc_date"]);
+            
             
             if($applicantObj->is_new || $prospect["mohe_regular"]) $applicantObj->set("attribute_1",$prospect["mohe_regular"]>0 ? "Y":"N");
             if($applicantObj->is_new || $prospect["mohe_Institution"]) $applicantObj->set("attribute_2",$prospect["mohe_Institution"]);
@@ -92,19 +149,14 @@ class UohCopyFromProspect {
             if($applicantObj->is_new || $prospect["sec_school_ind"]) $applicantObj->set("attribute_26",$prospect["sec_school_ind"]>0 ? "Y":"N");
             if($applicantObj->is_new || $prospect["qiyas_aptitude_ind"]) $applicantObj->set("attribute_27",$prospect["qiyas_aptitude_ind"]>0 ? "Y":"N");
             if($applicantObj->is_new || $prospect["qiyas_achievement_ind"]) $applicantObj->set("attribute_28",$prospect["qiyas_achievement_ind"]>0 ? "Y":"N");
-            if($applicantObj->is_new || $prospect["qiyas_achievement_th"]) $applicantObj->set("attribute_29",$prospect["qiyas_achievement_th"]);
-            if($applicantObj->is_new || $prospect["qiyas_achievement_th_date"]) $applicantObj->set("attribute_30",$prospect["qiyas_achievement_th_date"]);
-            if($applicantObj->is_new || $prospect["qiyas_aptitude_sc"]) $applicantObj->set("attribute_31",$prospect["qiyas_aptitude_sc"]);
-            if($applicantObj->is_new || $prospect["qiyas_aptitude_sc_date"]) $applicantObj->set("attribute_32",$prospect["qiyas_aptitude_sc_date"]);
-            if($applicantObj->is_new || $prospect["qiyas_aptitude_th"]) $applicantObj->set("attribute_33",$prospect["qiyas_aptitude_th"]);
-            if($applicantObj->is_new || $prospect["qiyas_aptitude_th_date"]) $applicantObj->set("attribute_34",$prospect["qiyas_aptitude_th_date"]);
-            if($applicantObj->is_new || $prospect["qiyas_achievement_sc"]) $applicantObj->set("attribute_35",$prospect["qiyas_achievement_sc"]);
-            if($applicantObj->is_new || $prospect["qiyas_achievement_sc_date"]) $applicantObj->set("attribute_36",$prospect["qiyas_achievement_sc_date"]);
+            
             if($applicantObj->is_new || $prospect["qiyas_activity_date"]) $applicantObj->set("attribute_37",$prospect["qiyas_activity_date"]);
-            $applicantObj->set("sci_id",$prospect["SISId"]); 
+
+
+            // $applicantObj->set("sci_id",$prospect["SISId"]); 
             
             $applicantObj->commit();
-            $qualifications = self::getProspectQualification($prospect["id"]);
+            $qualifications = self::getProspectQualificationRows($prospect["id"]);
             foreach($qualifications as $qual){
                 $applicant_qualification = ApplicantQualification::loadByMainIndex($prospect["idn"], $qual["qualification_id"], $qual["major_category_id"], true);
                 $applicant_qualification->set("applicant_id",$prospect["idn"]);
@@ -127,8 +179,8 @@ class UohCopyFromProspect {
         }
     }
 
-    public static function getProspectQualification($id){
-        $server_db_prefix = AfwSession::config("db_prefix", "default_db_");
+    public static function getProspectQualificationRows($id){
+        $server_db_prefix = AfwSession::currentDBPrefix();
         $prospect_qualifications = AfwDatabase::db_recup_rows("select * from ".$server_db_prefix."adm.prospect_qualification where applicant_id = '".$id."'");
         return $prospect_qualifications;
     }
