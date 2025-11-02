@@ -1,6 +1,15 @@
 <?php
 class UohApiRunner {
 
+
+
+    public static function applicant_apis()
+    {
+        return ['offline_data', 'moi_person_info', 'mlsd_disability', 'mohe_graduate_record', 
+                'moe_qualifications', 'moi_person_info', 'qiyas_exam_result'];
+    }
+
+
     public static function register_apis()
     {
         return ['offline_data', 'moi_person_info'];
