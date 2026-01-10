@@ -1,73 +1,73 @@
 <?php
 
-	$mod_info = array (
-  'crm' => 
-  array (
+$mod_info = array(
+  'crm' =>
+  array(
     'id' => '1073',
     'system_id' => '1',
   ),
-  'm1073' => 
-  array (
+  'm1073' =>
+  array(
     'code' => 'crm',
     'type' => '5',
   ),
-  'ums' => 
-  array (
+  'ums' =>
+  array(
     'id' => '18',
     'system_id' => '1',
   ),
-  'm18' => 
-  array (
+  'm18' =>
+  array(
     'code' => 'ums',
     'type' => '5',
   ),
-  'adm' => 
-  array (
+  'adm' =>
+  array(
     'id' => '1282',
     'system_id' => '1230',
   ),
-  'm1282' => 
-  array (
+  'm1282' =>
+  array(
     'code' => 'adm',
     'type' => '5',
   ),
-  'workflow' => 
-  array (
+  'workflow' =>
+  array(
     'id' => '1283',
     'system_id' => '1273',
   ),
-  'm1283' => 
-  array (
+  'm1283' =>
+  array(
     'code' => 'workflow',
     'type' => '5',
   ),
-  'pag' => 
-  array (
+  'pag' =>
+  array(
     'id' => '4',
     'system_id' => '1',
   ),
-  'm4' => 
-  array (
+  'm4' =>
+  array(
     'code' => 'pag',
     'type' => '5',
   ),
-  'bau' => 
-  array (
+  'bau' =>
+  array(
     'id' => '1233',
     'system_id' => '1',
   ),
-  'm1233' => 
-  array (
+  'm1233' =>
+  array(
     'code' => 'bau',
     'type' => '5',
   ),
-  'hrm' => 
-  array (
+  'hrm' =>
+  array(
     'id' => '1072',
     'system_id' => '1',
   ),
-  'm1072' => 
-  array (
+  'm1072' =>
+  array(
     'code' => 'hrm',
     'type' => '5',
   ),
@@ -94,16 +94,8 @@
     'code' => 'ums',
     'type' => '5',
   ),
-  'bmu' => 
-  array (
-    'id' => '1262',
-    'system_id' => '1',
-  ),
-  'm1262' => 
-  array (
-    'code' => 'bmu',
-    'type' => '5',
-  ),
+
+
   'edp' => 
   array (
     'id' => '1263',
@@ -285,4 +277,3 @@
     'type' => '5',
   ),
 );*/
- ?>
