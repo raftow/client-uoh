@@ -17,10 +17,10 @@
                 $file_dir_name = dirname(__FILE__);
 
                 $resEmployee = [];
-                require_once("$file_dir_name/../lib/afw/afw_web_service_api.php");
+                // require_once("$file_dir_name/../lib/afw/afw_web_service_api.php");
                 foreach($api_url_list as $api_url)
                 {
-                        $resEmployee = getDataFromAPIUrl($api_url, $data);
+                        $resEmployee = AfwApiConsumeHelper::getDataFromAPIUrl($api_url, $data);
                         if($resEmployee['login']) break;
                 }
                 
